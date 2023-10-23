@@ -10,16 +10,22 @@ function initMap() {
     gMap = new google.maps.Map(document.getElementById('myMapID'), {
         center: {lat: 41.878, lng: 10}, zoom: 3})
 
-    // Add marker for Canoe Bay, WI
-    var marker = new google.maps.Marker({position:{lat:45.3306,lng:-91.4918}, map:gMap})
+    // Add marker for Spectrum Center
+    var marker = new google.maps.Marker({position:{lat:35.2252,lng:-80.8393}, map:gMap})
+    // Add marker for KFC Yum Center
+    var marker2 = new google.maps.Marker({position:{lat:38.2578,lng:-85.7539}, map:gMap})
 
-    // Add a second marking with a custom icon, an Info window, and a listener.
-    var marker2 = new google.maps.Marker({position:{lat:36.3932,lng:25.4615}, map:gMap})
-    marker2.setIcon('https://maps.google.com/mapfiles/kml/shapes/info-i_maps.png')
+    console.log(location.lat)
+    console.log(location.lng)
 
-    var infoWindow = new google.maps.InfoWindow({content:'Santorini, Greece'})
+    var infoWindow = new google.maps.InfoWindow({content:'2022 BHS International Convention'})
     marker2.addListener('click', function() {
-        infoWindow.open(gMap, marker2)
+        infoWindow.open(gMap, marker)
+    })
+
+    var infoWindow2 = new google.maps.InfoWindow({content:'2023 BHS International Convention'})
+    marker2.addListener('click', function() {
+        infoWindow2.open(gMap, marker2)
     })
 
     // Note that several message boards suggested using 'idle' instead of 'bounds_changed' because
@@ -32,12 +38,14 @@ function initMap() {
 function updateGame() {
     console.log('function updateGame()!')
     var zoomLevel = gMap.getZoom()
+    console.log(zoomLevel)
     var inBounds = false
 
-    // Check if Canoe Bay, WI is in the current displayed map
-    if (gMap.getBounds().contains({lat:45.3306,lng:-91.4918})) {
+    // Check if location is on the map
+    if (gMap.getBounds().contains({lat:38.2578,lng:-85.7539})) {
         inBounds = true
     }
+    console.log(inBounds)
 }
 
 function initApplication() {
