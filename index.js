@@ -22,12 +22,9 @@ function winGame() {
     document.getElementById('scoreText').style.display = 'none';
 }
 
-// Variable to check if player has already cheated (can only do this once per game)
-var hasCheated = false;
-
 // Cheat function to instant win game
 function cheat() {
-    if (!hasCheated) {
+    if (!hasWon) {
         const confirmWin = confirm('Are you sure you want to skip my awesome game and win instantly?');
         if (confirmWin) {
             hasCheated = true;
