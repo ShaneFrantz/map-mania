@@ -33,8 +33,7 @@ function initMap() {
         var zoomLevel = gMap.getZoom();
 
         if (!gameWon && zoomLevel >= 8) {
-            if (currentLocationIndex < conventionLocations.length &&
-                gMap.getBounds().contains({ lat: conventionLocations[currentLocationIndex].lat, lng: conventionLocations[currentLocationIndex].lng })) {
+            if (currentLocationIndex < conventionLocations.length && gMap.getBounds().contains({ lat: conventionLocations[currentLocationIndex].lat, lng: conventionLocations[currentLocationIndex].lng })) {
                 var marker = markers[currentLocationIndex];
                 playerScore++;
                 console.log(playerScore);
@@ -66,6 +65,8 @@ function showHint() {
         alert(currentHint);
     }
 }
+
+//Displays champion quartet from the respective year
 
 function getHint(locationName) {
     switch (locationName) {
