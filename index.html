@@ -11,27 +11,14 @@
         <title>Map Mania</title>
         <link rel="stylesheet" href="main.css">
         <script src="index.js"></script>
-        <style>
-            /*
-                Always set the map height explicitly to define the size of the div element that contains
-                the map. Note that some of the tutorials reused "map" here also which seemed confusing.
-            */
-            #myMapID {
-                height: 100%;
-                width: 100%;
-            }
-
-            /* Optional: Makes the sample page fill the window. */
-            html, body {
-                height: 100%;
-                margin: 0;
-                padding: 0;
-            }
-        </style>
     </head>
     <body onload="initApplication()">
-        <h1>Map Mania</h1>
-
+        <div id="top-bar">
+            <h1>Map Mania</h1>
+            <button id="hintButton" onClick="showHint()">Hint Button</button>
+            <p id="topText"></p>
+            <p id="scoreText">Score: 0</p>
+        </div>
         <div id="myMapID"></div>
 
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYSg9VE2bzUJcyt91j-4MZXRz-0lkJBnM&callback=initMap"></script>
