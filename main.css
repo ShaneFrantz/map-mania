@@ -35,7 +35,7 @@ html, body {
     display: flex;
 }
 
-#hintButton, #instructionsButton {
+#hintButton, #cheatButton, #instructionsButton {
     display: inline-block;
     font-size: 24px;
     padding: 15px 30px;
@@ -49,7 +49,7 @@ html, body {
     transition: background-color 0.3s;
 }
 
-#hintButton:hover, #instructionsButton:hover {
+#hintButton:hover, #instructionsButton:hover, #cheatButton:hover {
     background-color: #1e6fa4;
 }
 

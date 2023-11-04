@@ -2,6 +2,7 @@ var gMap;
 var markers = [];
 var gameWon = false;
 var currentLocationIndex = 0;
+var playerScore = 0;
 
 var conventionLocations = [
     { name: '2013 Convention', lat: 43.6532, lng: -79.3832 },
@@ -14,7 +15,26 @@ var conventionLocations = [
     { name: '2023 Convention', lat: 38.2527, lng: -85.7585 }
 ];
 
-var playerScore = 0;
+function winGame() {
+    gameWon = true;
+    alert('Congratulations! You found all convention locations. You win!');
+    document.getElementById('topText').textContent = 'Congraulations! All Locations Found!';
+    document.getElementById('scoreText').style.display = 'none';
+}
+
+// Variable to check if player has already cheated (can only do this once per game)
+var hasCheated = false;
+
+// Cheat function to instant win game
+function cheat() {
+    if (!hasCheated) {
+        const confirmWin = confirm('Are you sure you want to skip my awesome game and win instantly?');
+        if (confirmWin) {
+            hasCheated = true;
+            winGame();
+        }
+    } 
+}
 
 function initMap() {
     gMap = new google.maps.Map(document.getElementById('myMapID'), {
@@ -42,10 +62,7 @@ function initMap() {
                 gMap.setZoom(4);
                 currentLocationIndex++;
                 if (playerScore === conventionLocations.length) {
-                    gameWon = true;
-                    alert('Congratulations! You found all convention locations. You win!');
-                    document.getElementById('topText').textContent = 'Congraulations! All Locations Found!';
-                    document.getElementById('scoreText').style.display = 'none';
+                    winGame()
                 } else {
                     document.getElementById('topText').textContent = 'Location found! Now look for ' + conventionLocations[playerScore].name + '!';
                     document.getElementById('scoreText').textContent = 'Score: ' + playerScore;
@@ -65,6 +82,7 @@ function initApplication() {
 function showHint() {
     if (currentLocationIndex < conventionLocations.length) {
         var currentHint = getHint(conventionLocations[currentLocationIndex].name);
+        if (gameWon) currentHint = getHint();
         alert(currentHint);
     }
 }
