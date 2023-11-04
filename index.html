@@ -15,13 +15,24 @@
     <body onload="initApplication()">
         <div id="top-bar">
             <h1>Map Mania</h1>
-            <button id="hintButton" onClick="showHint()">Hint Button</button>
+            <div class="button-container">
+                <button id="hintButton" onClick="showHint()">Hint</button>
+                <button id="instructionsButton" onClick="showInstructions()">Instructions</button>
+            </div>
             <p id="topText"></p>
             <p id="scoreText">Score: 0</p>
         </div>
         <div id="myMapID"></div>
 
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYSg9VE2bzUJcyt91j-4MZXRz-0lkJBnM&callback=initMap"></script>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeInstructions()">&times;</span>
+                <h2>Instructions</h2>
+                <p>Use Ctrl + Scroll to zoom in and out on the map. Zoom in closely on the city where the BHS International Convention was held in the current year &#40;as indicated in the top bar&#41; to earn points!</p>
+            </div>
+        </div>
         
     </body>
 </html>

@@ -1,6 +1,7 @@
 h1 {
     color: #1e6fa4;
     font-family: Lucida Bright,Georgia,serif; 
+    font-weight: 900;
 }
 /*
     Always set the map height explicitly to define the size of the div element that contains
@@ -28,11 +29,18 @@ html, body {
     flex-direction: column;
 }
 
-#hintButton {
+/*Buttons*/
+
+.button-container {
+    display: flex;
+}
+
+#hintButton, #instructionsButton {
     display: inline-block;
     font-size: 24px;
     padding: 15px 30px;
     margin-bottom: 20px;
+    margin-right: 20px;
     background-color: #3498db;
     color: #fff;
     border: none;
@@ -41,7 +49,7 @@ html, body {
     transition: background-color 0.3s;
 }
 
-#hintButton:hover {
+#hintButton:hover, #instructionsButton:hover {
     background-color: #1e6fa4;
 }
 
@@ -52,6 +60,40 @@ html, body {
 }
 
 #scoreText {
+    display: block;
     font-family: Lucida Bright,Georgia,serif; 
-    font-size: 18px;
+    font-size: 20px;
+}
+
+/*Modal Window*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.modal-content {
+    background-color: #fff;
+    font-family: Lucida Bright,Georgia,serif; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
 }

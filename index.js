@@ -57,7 +57,10 @@ function initMap() {
 
 function initApplication() {
     console.log('Map Mania - Starting!')
+    showInstructions()
 }
+
+//Hint Stuff
 
 function showHint() {
     if (currentLocationIndex < conventionLocations.length) {
@@ -89,4 +92,18 @@ function getHint(locationName) {
         default:
             return 'No hint available';
     }
+}
+
+// Instructions Window
+
+function showInstructions() {
+    var modal = document.getElementById("modal");
+    modal.style.display = "block";
+    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+}
+
+function closeInstructions() {
+    var modal = document.getElementById("modal");
+    modal.style.display = "none";
+    modal.style.backgroundColor = 'rgba(0, 0, 0, 0)';
 }
