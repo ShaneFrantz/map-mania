@@ -15,6 +15,8 @@ var conventionLocations = [
     { name: '2023 Convention', lat: 38.2527, lng: -85.7585 }
 ];
 
+// Function that triggers game win events
+
 function winGame() {
     gameWon = true;
     alert('Congratulations! You found all convention locations. You win!');
