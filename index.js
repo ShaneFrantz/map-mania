@@ -3,6 +3,8 @@ var markers = [];
 var gameWon = false;
 var currentLocationIndex = 0;
 var playerScore = 0;
+var hasWon = false;
+var hasCheated = false;
 
 var conventionLocations = [
     { name: '2013 Convention', lat: 43.6532, lng: -79.3832 },
@@ -26,7 +28,7 @@ function winGame() {
 
 // Cheat function to instant win game
 function cheat() {
-    if (!hasWon) {
+    if (!hasCheated && !hasWon) {
         const confirmWin = confirm('Are you sure you want to skip my awesome game and win instantly?');
         if (confirmWin) {
             hasCheated = true;
